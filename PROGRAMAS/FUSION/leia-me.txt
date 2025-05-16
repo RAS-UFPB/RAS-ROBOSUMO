@@ -1,0 +1,20 @@
+criação do email acadêmico e download do fusion
+
+
+primeiro, criar seu email acadêmico no sigaa, apenas 2 passos disponíveis no vídeo 1
+
+
+download do fusion
+
+primeiramente, é necessário pedir o acesso para estudantes da Autodesk, como já fiz esse acesso anteriormente não foi possível gravar ele para vocês, mas temos o passo a passos no site da Autodesk disponível no link abaixo:
+https://www.autodesk.com/support/account/education/students-educators/get-started
+quando criar esse acesso, podem colocar campus 1, funciona normalmente
+
+após receber o acesso, segue o processo de instalação no vídeo 2
+link da página de download:
+https://www.autodesk.com/education/edu-software/overview
+
+
+problemas com o menu de seleção de interesse (vídeo 3)
+
+um bug comum ao instalar, na primeira inicialização a tela de seleção de interesse pode conflitar com a escala do monitor, sendo assim necessário você selecionar um opção, apertar tab algumas vezes e esconder a barra de tarefas para ter acesso ao botão confirmar, após isso seu fusion está instalado com êxito.
