@@ -1,0 +1,136 @@
+//Pinos dos Motores
+
+int rpwm = 5;
+int lpwm = 6;
+int ren = 4;
+int len = 7;
+
+int rpwm2 9
+int lpwm 10
+int ren2 11
+int len2 12
+
+// Pinos dos sensores
+const int trigA = A; //Frente
+const int echoA = A;
+
+const int trigB = B; //Frente
+const int echoB = B;
+
+const int trigC = C;  //Esquerdo
+const int echoC = C;
+
+const int trigD = D; //Direito
+const int echoD = D;
+
+void setup() {
+
+ // Motores
+  pinMode(rpwm, OUTPUT);
+  pinMode(lpwm, OUTPUT);
+  pinMode(ren, OUTPUT);
+  pinMode(len, OUTPUT);
+  digitalWrite(ren, HIGH);
+  digitalWrite(len, HIGH);
+
+  pinMode(rpwm2, OUTPUT);
+  pinMode(lpwm2, OUTPUT);
+  pinMode(ren2, OUTPUT);
+  pinMode(len2, OUTPUT);
+  digitalWrite(ren2, HIGH);
+  digitalWrite(len2, HIGH);
+
+  // Sensores
+  pinMode(trigA, OUTPUT);
+  pinMode(echoA, INPUT);
+
+  pinMode(trigB, OUTPUT);
+  pinMode(echoB, INPUT);
+
+  pinMode(trigC, OUTPUT);
+  pinMode(echoC, INPUT);
+  
+  pinMode(trigD, OUTPUT);
+  pinMode(echoD, INPUT);
+
+}
+void loop() {
+  float distA = medirDistancia(trigA, echoA);
+  float distB = medirDistancia(trigB, echoB);
+  float distC = medirDistancia(trigC, echoC);
+  float distD = medirDistancia(trigD, echoD);
+
+  if (distA =< 150 || distB =< 150) {
+    
+    andarFrente();
+    
+  } else if (distC =< 150) {
+    
+    girarEsquerda();
+    
+  } else if (distD =< 150) {
+    
+    girarDireita();
+    
+  } else {
+    
+    Parar();
+  }
+
+  delay(100); // Só pra garantir
+}
+
+// Função Sensores
+float medirDistancia(int trig, int echo) {
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  int duracao = pulseIn(echo, HIGH, 30000); // Delay de 30ms
+  if (duracao == 0) return -1;
+  return duracao * 0.034 / 2; // Distância
+}
+
+// Funções Motores
+
+void andarFrente(){
+
+  analogWrite(lpwm, 0);
+  analogWrite(rpwm, 60);
+  
+  analogWrite(lpwm2, 0);
+  analogWrite(rpwm2, 60);
+
+}
+
+void girarEsquerda(){
+
+  analogWrite(lpwm, 0);
+  analogWrite(rpwm, 60);
+  
+  analogWrite(rpwm2, 0);
+  analogWrite(lpwm2, 60);
+
+}
+
+void girarDireita(){
+
+  analogWrite(rpwm, 0);
+  analogWrite(lpwm, 60);
+  
+  analogWrite(lpwm2, 0);
+  analogWrite(rpwm2, 60);
+
+}
+
+void Parar(){
+
+  analogWrite(rpwm, 0);
+  analogWrite(lpwm, 0);
+  
+  analogWrite(lpwm2, 0);
+  analogWrite(rpwm2, 0);
+
+}
